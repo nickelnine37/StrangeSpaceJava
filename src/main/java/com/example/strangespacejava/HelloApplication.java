@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 import javafx.scene.Group;
 import javafx.animation.FadeTransition;
 import javafx.util.Duration;
+import javafx.scene.shape.Circle;
 
 import java.io.IOException;
 
@@ -68,7 +69,31 @@ public class HelloApplication extends Application {
         stage.setResizable(false);
         stage.setMaximized(true);
 
-        this.titleAnimation(root, scene).play();
+//        this.titleAnimation(root, scene).play();
+
+//        Circle circle = new Circle();
+//        circle.setCenterX(200);        // X position of the center
+//        circle.setCenterY(150);        // Y position of the center
+//        circle.setRadius(50);          // Radius of the circle
+//        circle.setFill(Color.RED);     // Fill color
+//        circle.setStroke(Color.WHITE); // Optional: outline
+//        circle.setStrokeWidth(3);      // Optional: outline thickness
+//
+//        root.getChildren().add(circle);
+
+        Stars stars = new Stars(100);
+
+        for (int i = 0; i < 100; i++) {
+            double[] pos = stars.getStar(i);
+            if (pos[2] > 0) {
+                Circle circle = new Circle();
+                circle.setCenterX(pos[0] * 500);        // X position of the center
+                circle.setCenterY(pos[1] * 500);        // Y position of the center
+                circle.setRadius(50);          // Radius of the circle
+                circle.setFill(Color.WHITE);     // Fill color
+                root.getChildren().add(circle);
+        }
+        }
 
         stage.show();
     }
